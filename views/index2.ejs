@@ -1,0 +1,68 @@
+
+<% include ./main/header %>
+<% include ./main/navbar %>
+<div class="product">
+
+<h1 class="title">Shop Our Latest Styles</h1>
+    <p class="title2" >shop</p>
+    <div class="container" style=" padding:20px 220px;">
+        <div class="row">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12">
+                    <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+
+            </div>
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12">
+                    <form class="form-inline my-2 my-lg-0"  method='GET' action='/' >
+                            <select class="form-control mr-sm-2" name="category" aria-label="filter" style="padding:0px 50px">
+                                <option value="all">all-no filter</option>
+                                <option value="tulip">Tulip</option>
+                                <option value="Sunflower">Sunflower</option>
+                                <option value="Daffodil">Daffodil</option>
+                            </select>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="filter">Filter</button>
+                    </form>
+                    
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+         <div class="col col-12 col-sm-12 col-md-6 col-lg-8">
+                <div class="row">
+        <% for(var flower of flowers ) { %>
+        <div class="col col-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="card" style="width: 18rem;">
+                        <img src="<%= flower.photo %>" class="card-img-top pimg" alt="...">
+                        <div class="card-body">
+                          <h3 class="card-title ptitle"><%= flower.name %></h3>
+                          <p class="card-text"><%= flower.discription %></p>
+                          <h4  class="price"><%= flower.price %></h4>
+                          <a href="#" class="btn btn-primary">ADD to cart</a>
+                          <form method="GET" action="/">
+                          <button value="<%=flower.productId %>" name="fid" type="submit" class="btn btn-primary">more details</a>
+                          </form>
+                         </div>
+                </div>
+        </div>
+        <%}%>
+                </div>
+            </div>
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="card " style="width: 30rem; text-align: left; padding:20px;">
+                    <h2 style="font-family: 'Lalezar', cursive;font-size:50px;">Flower Details </h2>
+                        <div class="card-body">
+                          <h3 class="card-title ptitle"><%= detail.name %></h3>
+                          <p class="card-text" style="font-family: 'Josefin Sans', sans-serif; font-size:35px"><%= detail.discription %></p>
+                          <h3>this just in avery nice price that is</h3>
+                          <h4  class="price"> <br><%= detail.price %></h4>
+                          <a href="#" class="btn btn-primary" style="margin-left:50%">ADD to cart</a> 
+                         </div>
+                </div>
+    </div>
+</div>
+</div>
+</div>
+<% include ./main/footer %>

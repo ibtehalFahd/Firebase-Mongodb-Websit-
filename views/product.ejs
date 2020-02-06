@@ -1,0 +1,44 @@
+
+<% include ./main/header %>
+<% include ./main/navbar %>
+<div class="product">
+
+<h1 class="title">Flower Delails appear here </h1>
+    <p class="title2" >shop</p>
+   
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="card" style="width: 20rem; ">
+                        <img src="/<%= flowers.photo %>" class="card-img-top pimg" alt="...">
+                        <div class="card-body">
+                          <h3 class="card-title ptitle"><%= flowers.name %></h3>
+                          <!-- <p class="card-text"><%= flowers.discription %></p> -->
+                          <!-- <h4  class="price"><%= flowers.price %></h4>
+                          <a href="#" class="btn btn-primary">ADD to cart</a> -->
+                         </div>
+                </div>
+        </div>
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-8">
+                <div class="card " style="width: 50rem; text-align: left; padding:20px;">
+                    <h2 style="font-family: 'Lalezar', cursive;font-size:50px;">Flower Details </h2>
+                        <div class="card-body">
+                          <h3 class="card-title ptitle"><%= flowers.name %></h3>
+                          <p class="card-text" style="font-family: 'Josefin Sans', sans-serif; font-size:35px"><%= flowers.discription %></p>
+                          <h3>this just in avery nice price that is</h3>
+                          <h4  class="price"> <br><%= flowers.price %></h4>
+                          <form action="/cart" method="post">
+                            <input type="hidden" name="id" value="<%= flowers.productId %>">
+                            <input type="hidden" name="name" value="<%= flowers.name %>">
+                            <input type="hidden" name="pirce" value="<%= flowers.price %>">
+                            <input type="hidden" name="redirect" value="/<%= flowers.productId %>">
+                            <input type="submit" value="add to chart" class="btn btn-primary" style="margin-left:50%" ">
+                          </form>
+                         </div>
+                </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<% include ./main/footer %>

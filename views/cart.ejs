@@ -1,0 +1,40 @@
+
+<% include ./main/header %>
+<% include ./main/navbar %>
+<div class="product">
+
+<h1 class="title">Catds management</h1>
+    <p class="title2" >cart</p>
+   <div class="container">
+    <table class="timetable_sub">
+        <thead>
+            <tr>
+                <th>Item No.</th>	
+                <th>name</th>
+                <th>Image</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+        <% var i=0;
+        for(var item of items ) {
+            i++; %>
+     <tr>
+            <td> <%= i%></td>
+            <td> <%= item.name%></td>
+            <td> <img src="p<%= item.produtId %>.jpg" class="card-img-top pimg" alt="..." style="width: 150px;height:150px;"></td>
+            <td><input type="number" value="<%= item.amount%>" name="quan" id="quan"></td>
+            <td> <%= item.price%></td>
+            <td><%= item.price*item.amount%></td>
+            <td>X</td>
+        </tr>
+            <%}%>
+        </tbody>
+    </table>  
+</div>
+</div>
+<% include ./main/footer %>

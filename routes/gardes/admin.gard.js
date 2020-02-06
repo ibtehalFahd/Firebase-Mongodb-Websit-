@@ -1,0 +1,12 @@
+exports.isadmin=(req,res,next)=>{
+    if(req.session.isAdmin)
+        next()
+    else
+        res.redirect('/login')
+    }
+exports.notadmin=(req,res,next)=>{
+        if(!req.session.isAdmin)
+            next()
+        else
+            res.redirect('/')
+        }

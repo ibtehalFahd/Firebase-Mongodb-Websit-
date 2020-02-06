@@ -1,0 +1,89 @@
+<% include ./main/header %>
+<% include ./main/navbar %>
+    
+  <section class="main-block">
+      <div class="container addp">
+               <div class="row justify-content-center">
+                     <div class="col-md-5">
+                            <div class="styled-heading">
+                                <h2>add new product  </h2>
+                            </div>
+                        </div>
+                 </div>
+      
+    
+    <div class="row ">
+      
+      <div class="col-md-12">
+        <form action="/admin/addProduct" method="post"  enctype="multipart/form-data">
+        <select class="form-control" id="productSelect" name="cat"><option>Please Select a Product Category</option>
+          <option value="tulip">tulip</option>
+          <option value="Plectranthus">Plectranthus</option>
+          <option value="Sunflower">Sunflower</option>
+          <option value="Daffodil">Daffodil</option>
+          <% let cerr=vError.find(err=>err.param==='cat')%>
+          <% if(cerr){%>
+              <p class="alert alert-danger" style="margin: 4px;font-size:12px;">
+                  <%= cerr.msg %>
+              </p>
+          <%}%>
+        </select>
+        
+     <div class="form-group">
+       <label for="productname" class="loginFormElement">product name:</label>
+       <input class="form-control" id="productname" type="text" name="name">
+       <% let nerr=vError.find(err=>err.param==='name')%>
+       <% if(nerr){%>
+           <p class="alert alert-danger" style="margin: 4px;font-size:12px;">
+               <%= nerr.msg %>
+           </p>
+       <%}%>
+     </div>
+        
+     <div class="form-group">
+       <label for="productprice" class="loginFormElement">Product Price</label>
+       <input class="form-control" id="productprice" type="text" name="price">
+       <% let perr=vError.find(err=>err.param==='price')%>
+       <% if(perr){%>
+           <p class="alert alert-danger" style="margin: 4px;font-size:12px;">
+               <%= perr.msg %>
+           </p>
+       <%}%>
+     </div>
+       
+    
+    
+    <div class="form-group">
+    <label class="control-label">Product Image</label>
+     
+    <input class="filestyle" id='productimg' data-icon="false" type="file" name="img">
+    <% let ierr=vError.find(err=>err.param==='img')%>
+    <% if(ierr){%>
+        <p class="alert alert-danger" style="margin: 4px;font-size:12px;">
+            <%= ierr.msg %>
+        </p>
+    <%}%>
+     
+    </div>
+        
+        <div class="form-group">
+          <label class="loginformelement" for="productdescription">Product Description</label>
+            <input id="productdescription" class="form-control input-lg" name="disc" placeholder="Large" type="text"><div class="container">
+                <% let derr=vError.find(err=>err.param==='disc')%>
+                <% if(derr){%>
+                    <p class="alert alert-danger" style="margin: 4px;font-size:12px;">
+                        <%= derr.msg %>
+                    </p>
+                <%}%>
+          </div>
+          <br>
+        <button type="submit" id="addproduct" class="btn btn-success loginFormElement">Add Product</button>
+      
+        </div> 
+      </form>     
+        </div>
+
+      </div>
+    </div>
+</section>
+<% include ./main/footer %>

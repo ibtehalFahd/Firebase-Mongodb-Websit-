@@ -1,0 +1,58 @@
+<% include ./main/header %>
+<% include ./main/navbar %>
+<div class="auth">
+    <div class="signup-form">
+        <form action="/signup" method="POST">
+            <h2>Sign Up</h2>
+            <p>It's free and only takes a minute.</p>
+            <hr>
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                <% let unerr=vError.find(err=>err.param==='username')%>
+                <% if(unerr){%>
+                    <p class="alert alert-danger" style="margin: 4px;font-size:12px;">
+                        <%= unerr.msg %>
+                    </p>
+                <%}%>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
+                <% let emerr=vError.find(err=>err.param==='email')%>
+                <% if(emerr){%>
+                    <p class="alert alert-danger" style="margin: 4px;font-size:12px;">
+                        <%= emerr.msg %>
+                    </p>
+                <%}%>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                <% let passerr=vError.find(err=>err.param==='password')%>
+                <% if(passerr){%>
+                    <p class="alert alert-danger" style="margin: 4px;font-size:12px;">
+                        <%= passerr.msg %>
+                    </p>
+                <%}%>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password" required="required">
+                <% let cpasserr=vError.find(err=>err.param==='confirmpassword')%>
+                <% if(cpasserr){%>
+                    <p class="alert alert-danger" style="margin: 4px;font-size:12px;">
+                        <%= cpasserr.msg %>
+                    </p>
+                <%}%>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+            </div>
+            <% if(autherr.length!==0){%>
+                <p class="alert alert-danger" style="margin: 4px;font-size:12px;">
+                    <%= autherr[0] %>
+                </p>
+            <%}%>
+            <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
+        </form>
+        <div class="text-center">Already have an account? <a href="#">Login here</a></div>
+    </div>
+</div>
+<% include ./main/footer %>
